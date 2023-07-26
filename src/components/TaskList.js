@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './TaskList.css'; // Importe le fichier CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const TaskList = () => {
   const { userId } = useParams();
@@ -40,24 +41,50 @@ const TaskList = () => {
     <div className="task-list">
     <h2 className='titleh2'>Tâches de l'Utilisateur</h2>
     {currentTasks.length > 0 ? (
-      <table className="table">
-        <thead>
+      /// 
+      // <table className="table">
+      //   <thead>
+      //     <tr>
+      //       <th>ID</th>
+      //       <th>Tâche</th>
+      //       <th>Statut</th>
+      //     </tr>
+      //   </thead>
+      //   <tbody>
+      //     {currentTasks.map((task) => (
+      //       <tr key={task.id}>
+      //         <td>{task.id}</td>
+      //         <td>{task.title}</td>
+      //         <td>{task.completed ? 'Terminée' : 'En cours'}</td>
+      //       </tr>
+      //     ))}
+      //   </tbody>
+      // </table>
+      /// test table boot strap
+      <table id="example" class="table table-hover table-bordered text-center table-responsive">
+      <thead class="table table-light">
           <tr>
-            <th>ID</th>
-            <th>Tâche</th>
-            <th>Statut</th>
+              <th scope="col">#</th>
+              <th scope="col">title</th>
+              <th scope="col">effectif</th>
+              <th scope="col">start_time</th>
+              <th scope="col">end_time</th>
+              <th scope="col">date</th>
           </tr>
-        </thead>
-        <tbody>
-          {currentTasks.map((task) => (
-            <tr key={task.id}>
-              <td>{task.id}</td>
-              <td>{task.title}</td>
-              <td>{task.completed ? 'Terminée' : 'En cours'}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      </thead>
+      <tbody>
+          <tr>
+              <th scope="row">#</th>
+              <td>test1</td>
+              <td>tsest2</td>
+              <td>test3</td>
+              <td>test4</td>
+              <td>test5</td>
+          </tr>
+  
+      </tbody>
+  </table>
+      /// 
     ) : (
       <p className="no-tasks">Aucune tâche disponible pour cet utilisateur.</p>
     )}

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TaskList from './components/TaskList';
 import UserList from './components/UserList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
