@@ -39,7 +39,7 @@
   .titleh2{
     text-align: center;
   }
-  .pagination {
+  /* .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -62,7 +62,43 @@
     background-color: #007bff;
     color: #fff;
     border: 1px solid #007bff;
-  }
+  } */
+  /* Nouveau style pour la pagination */
+.pagination {
+  /* display: flex;
+  justify-content: center;
+  margin-top: 20px; */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* background-image: url('chemin/vers/ton/image.jpg'); */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: 1px solid #007bff;
+  background-color: #fff;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.pagination button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: #fff;
+}
   .headh1{
     margin-top: 3%;
     text-align: center;
@@ -88,8 +124,22 @@
     color: blue;
   }
 /*///////////*/
-/* @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media screen and (max-width: 600px) {
+  .table {
+    width: 100%;
+    margin: 0;
   }
-} */
+
+  .table th,
+  .table td {
+    padding: 4px;
+    font-size: 0.8rem; /* Ajuste la taille de police pour les appareils mobiles */
+  }
+
+  .table th {
+    font-size: 0.9rem; /* Ajuste la taille de police pour les appareils mobiles */
+  }
+  .titleh2{
+    font-size: 1.3rem;
+  }
+}
