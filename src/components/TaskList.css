@@ -2,11 +2,16 @@
 .task-list {
     margin: 20px 0;
   }
+  .conteneur{
+    width: 80%;
+    margin: 100px; 
+  }
   
   .table {
     width: 80%;
     border-collapse: collapse;
     margin-left:10%;
+    margin-top: 3%;
   }
   
   .table th,
@@ -58,3 +63,13 @@
     color: #fff;
     border: 1px solid #007bff;
   }
+  .headh1{
+    margin-top: 3%;
+    text-align: center;
+  }
+/*///////////*/
+/* @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+} */
