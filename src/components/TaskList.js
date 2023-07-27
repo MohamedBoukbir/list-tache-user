@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import './TaskList.css'; // Importe le fichier CSS
 import { faCheck,faClock } from '@fortawesome/free-solid-svg-icons'; // Use the correct import statement
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,14 +18,21 @@ const TaskList = () => {
     setCurrentPage(page);
   };
 
-  useEffect(() => {
-    // Appeler l'API REST pour récupérer les tâches de l'utilisateur sélectionné
-     
-    fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`)
-      .then((response) => response.json())
-      .then((data) => setTasks(data));
-  }, [userId]);
 
+  useEffect(() => {
+    // Fonction pour récupérer les données de l'API
+    const fetchTasks = async () => {
+      try {
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`);
+        setTasks(response.data);
+      } catch (error) {
+        console.error('Une erreur s\'est produite lors de la récupération des utilisateurs :', error);
+      }
+    };
+
+    // Appeler la fonction pour récupérer les données
+    fetchTasks();
+  }, [userId]);
     // Calculer l'index de la première et de la dernière tâche sur la page actuelle
     const indexOfLastTask = currentPage * tasksPerPage;
     const indexOfFirstTask = indexOfLastTask - tasksPerPage;

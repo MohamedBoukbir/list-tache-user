@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 // get our fontawesome imports
 import { faHome, faListCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,12 +18,24 @@ const UserList = () => {
   };
 
 
+
   useEffect(() => {
-    // Appeler l'API REST pour récupérer la liste des utilisateurs
-    fetch('https://jsonplaceholder.typicode.com/users/')
-      .then((response) => response.json())
-      .then((data) => setUsers(data));
+    // Fonction pour récupérer les données de l'API
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users/');
+        setUsers(response.data);
+      } catch (error) {
+        console.error('Une erreur s\'est produite lors de la récupération des utilisateurs :', error);
+      }
+    };
+
+    // Appeler la fonction pour récupérer les données
+    fetchUsers();
   }, []);
+
+
+
    // Calculer l'index de la première et de la dernière tâche sur la page actuelle
    const indexOfLastUser = currentPage * userPerPage;
    const indexOfFirstUser = indexOfLastUser - userPerPage;
