@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './TaskList.css'; // Importe le fichier CSS
+import { faCheck,faClock } from '@fortawesome/free-solid-svg-icons'; // Use the correct import statement
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TaskList = () => {
   const { userId } = useParams();
@@ -53,7 +55,7 @@ const TaskList = () => {
             <tr key={task.id}>
               <td>{task.id}</td>
               <td>{task.title}</td>
-              <td>{task.completed ? 'Terminée' : 'En cours'}</td>
+              <td>{task.completed ? <FontAwesomeIcon icon={faCheck} className="green" /> : <FontAwesomeIcon icon={faClock} className="red" />}</td>
             </tr>
           ))}
         </tbody>

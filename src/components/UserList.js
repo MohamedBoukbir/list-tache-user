@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+// get our fontawesome imports
+import { faHome, faListCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -45,10 +48,10 @@ const UserList = () => {
       <table className="table">
         <thead>
           <tr>
-            <th>name</th>
-            <th>username</th>
-            <th>email</th>
-            <th>Action</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Les Tâches</th>
           </tr>
         </thead>
         <tbody>
@@ -57,7 +60,7 @@ const UserList = () => {
               <td>{user.name}</td>
               <td>{user.username}</td>
               <td>{user.email }</td>
-              <td key={user.id}>   <Link to={`/tasks/${user.id}`}> Liste des tâches</Link>   </td>
+              <td key={user.id}>   <Link to={`/tasks/${user.id}`}> <FontAwesomeIcon  className="blue" icon={faListCheck} /></Link>   </td>
             </tr>
           ))}
         </tbody>
